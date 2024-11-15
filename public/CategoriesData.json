@@ -1,0 +1,168 @@
+[
+    {
+      "product_id": "P001",
+      "product_title": "Apple iPhone 15 Pro Max",
+      "product_image": "https://i.ibb.co.com/KxTdGpF/Apple-i-Phone-15-Pro-Max.webp",
+      "category": "Iphone",
+      "price": 1299,
+      "description": "Experience the ultimate smartphone with the iPhone 15 Pro Max.",
+      "specification": ["6.7-inch Super Retina XDR display", "A17 Bionic chip", "Triple-camera system", "LiDAR Scanner", "Up to 2TB storage"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": "P002",
+      "product_title": "Samsung Galaxy S23 Ultra",
+      "product_image": "https://i.ibb.co.com/gdX3f0k/Samsung-Galaxy-S23-Ultra.png",
+      "category": "Phones",
+      "price": 1199,
+      "description": "The Samsung Galaxy S23 Ultra with advanced camera features.",
+      "specification": ["6.8-inch Dynamic AMOLED display", "Exynos 2200", "Quad-camera system", "5000mAh battery", "1TB storage"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P003",
+      "product_title": "Google Pixel 8 Pro",
+      "product_image": "https://i.ibb.co.com/r6pwmDJ/Pixel-8-Pro.webp",
+      "category": "Phones",
+      "price": 999,
+      "description": "The latest Google Pixel with AI-powered features.",
+      "specification": ["6.7-inch OLED display", "Google Tensor G3", "Triple-camera system", "5000mAh battery", "512GB storage"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P004",
+      "product_title": "Sony WH-1000XM5",
+      "product_image": "https://i.ibb.co.com/WfMS9yj/Sony-WH-1000-XM5-keyvisual-black-Large-1.webp",
+      "category": "Accessories",
+      "price": 399,
+      "description": "Industry-leading noise-canceling headphones from Sony.",
+      "specification": ["Over-ear design", "30-hour battery life", "Touch controls", "Bluetooth 5.2"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P005",
+      "product_title": "Bose QuietComfort Earbuds",
+      "product_image": "https://i.ibb.co.com/7pMKLGw/Bose-Quiet-Comfort-Ultra.jpg",
+      "category": "Accessories",
+      "price": 279,
+      "description": "Bose QuietComfort Earbuds with superior noise cancellation.",
+      "specification": ["In-ear design", "20-hour battery life", "Touch controls", "Bluetooth 5.1"],
+      "availability": true,
+      "rating": 4.4
+    },
+    {
+      "product_id": "P006",
+      "product_title": "Apple AirPods Max",
+      "product_image": "https://i.ibb.co.com/ZfLFZNt/Airpod-Max-4.webp",
+      "category": "Accessories",
+      "price": 549,
+      "description": "High-fidelity audio and active noise cancellation.",
+      "specification": ["Over-ear design", "20-hour battery life", "Digital crown control", "Bluetooth 5.0"],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P007",
+      "product_title": "Apple MacBook Pro 16",
+      "product_image": "https://i.ibb.co.com/Hxk8JJM/Apple-Mac-Book-Pro-16.jpg",
+      "category": "MacBook",
+      "price": 2499,
+      "description": "The powerful MacBook Pro 16 with M1 Max chip.",
+      "specification": ["16-inch Retina display", "M1 Max chip", "32GB RAM", "1TB SSD"],
+      "availability": true,
+      "rating": 4.9
+    },
+    {
+      "product_id": "P008",
+      "product_title": "Dell XPS 13",
+      "product_image": "https://i.ibb.co.com/W08LzcY/Dell-XPS-13.jpg",
+      "category": "Laptops",
+      "price": 999,
+      "description": "The compact and powerful Dell XPS 13 laptop.",
+      "specification": ["13.4-inch FHD+ display", "Intel i7", "16GB RAM", "512GB SSD"],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P009",
+      "product_title": "HP Spectre x360",
+      "product_image": "https://i.ibb.co.com/64BLTxd/HP-Spectre-x360.png",
+      "category": "Laptops",
+      "price": 1299,
+      "description": "Versatile 2-in-1 laptop with a sleek design.",
+      "specification": ["13.3-inch 4K OLED display", "Intel i7", "16GB RAM", "1TB SSD"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P010",
+      "product_title": "Microsoft Surface Laptop 4",
+      "product_image": "https://i.ibb.co.com/RC50yGk/Microsoft-Surface-Laptop-4.jpg",
+      "category": "Laptops",
+      "price": 1499,
+      "description": "The stylish and powerful Surface Laptop 4.",
+      "specification": ["15-inch PixelSense display", "AMD Ryzen 7", "16GB RAM", "512GB SSD"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": "P011",
+      "product_title": "OnePlus 11 Pro",
+      "product_image": "https://i.ibb.co.com/MkJytjm/One-Plus-11-Pro.jpg",
+      "category": "Phones",
+      "price": 899,
+      "description": "The flagship OnePlus 11 Pro with fast performance.",
+      "specification": ["6.7-inch Fluid AMOLED display", "Snapdragon 8 Gen 2", "Triple-camera system", "4500mAh battery", "256GB storage"],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": "P012",
+      "product_title": "Sony WF-1000XM4",
+      "product_image": "https://i.ibb.co.com/ZWXHz3c/Sony-WF-1000-XM4.jpg",
+      "category": "Accessories",
+      "price": 279,
+      "description": "Premium noise-canceling earbuds from Sony.",
+      "specification": ["In-ear design", "24-hour battery life", "Touch controls", "Bluetooth 5.2"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": "P013",
+      "product_title": "Asus ROG Zephyrus G14",
+      "product_image": "https://i.ibb.co.com/8d8GPdQ/Asus-ROG-Zephyrus-G14.jpg",
+      "category": "Laptops",
+      "price": 1599,
+      "description": "High-performance gaming laptop with a compact design.",
+      "specification": ["14-inch QHD display", "AMD Ryzen 9", "16GB RAM", "1TB SSD"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": "P014",
+      "product_title": "Google Pixel Buds Pro",
+      "product_image": "https://i.ibb.co.com/GTgnVzd/Google-Pixel-Buds-Pro.jpg",
+      "category": "Accessories",
+      "price": 199,
+      "description": "Google's premium wireless earbuds with active noise cancellation.",
+      "specification": ["In-ear design", "11-hour battery life", "Touch controls", "Bluetooth 5.0"],
+      "availability": true,
+      "rating": 4.4
+    },
+    {
+      "product_id": "P015",
+      "product_title": "Lenovo ThinkPad X1 Carbon",
+      "product_image": "https://i.ibb.co.com/yNLHHP3/Lenovo-Think-Pad-X1-Carbon.jpg",
+      "category": "Laptops",
+      "price": 1799,
+      "description": "The durable and powerful ThinkPad X1 Carbon.",
+      "specification": ["14-inch FHD display", "Intel i7", "16GB RAM", "1TB SSD"],
+      "availability": true,
+      "rating": 4.7
+    }
+  ]
+  
