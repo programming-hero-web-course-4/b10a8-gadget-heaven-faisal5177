@@ -2,28 +2,25 @@ import React, { useState, useEffect } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { addToStoredCartList, addToStoredWishList } from "../../utility/addToDb"; // Assuming these are correct imports
+import { addToStoredCartList, addToStoredWishList } from "../../utility/addToDb";
 
 const ProductDetails = () => {
-  const { product_id } = useParams(); // Grabbing the product_id from the URL params
-  const data = useLoaderData(); // Fetching data from the loader
-
-  // Find the product using the correct product_id
+  const { product_id } = useParams();
+  const data = useLoaderData();
   const category = data.find((item) => item.product_id === product_id);
 
-  // Handle Add to Cart and Add to Wishlist
   const handleAddToCart = (id) => {
     addToStoredCartList(id);
   };
 
   const handleAddToWishlist = (id) => {
-    addToStoredWishList(id);
+    addToStoredWishList(id); 
   };
 
-  // If the category (product) doesn't exist, show an error message
   if (!category) {
     return <p>Product not found.</p>;
   }
+
 
   return (
     <div className="mb-96">
@@ -104,12 +101,12 @@ const ProductDetails = () => {
                 </small>
               </Link>
 
-              <button
+              <Link
                 className="btn btn-sm rounded-full"
                 onClick={() => handleAddToWishlist(product_id)}
               >
                 <AiOutlineHeart />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

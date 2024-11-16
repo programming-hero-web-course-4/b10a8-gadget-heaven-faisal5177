@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { getStoredCartList, addToCart } from "../../utility/addToDb";
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ CartItem }) => {
   const data = useLoaderData();
-  const [CartItem, setCartItems] = useState([]);
+  const [cartItem, setCartItems] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     const storedCartList = getStoredCartList();
     console.log("Stored Cart List:", storedCartList);
@@ -35,9 +36,9 @@ const CartItem = ({ cartItem }) => {
           </small>
         </p>
         <div>
-          <button className="btn mr-5 font-bold">Cart</button>
-          <Link to='WishlistItem'>
-            <button className="btn font-bold">Wishlist</button>
+          <button className="btn btn-sm mr-5 font-bold">Cart</button>
+          <Link to='/wishlistItem'>
+            <button className="btn btn-sm font-bold">Wishlist</button>
           </Link>
         </div>
       </div>

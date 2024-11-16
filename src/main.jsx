@@ -31,11 +31,10 @@ const router = createBrowserRouter([
         loader: () => fetch('/CategoriesData.json').then(res => res.json()),
       },
       {
-        path: "wishlistItem",
+        path: "wishlistItem", 
         element: <WishlistItem />,
         loader: () => fetch('/CategoriesData.json').then(res => res.json()),
       },
-      
       {
         path: "dashboard",
         element: <Dashboard />,

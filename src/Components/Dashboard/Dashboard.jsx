@@ -1,5 +1,6 @@
+
 import React from "react";
-import { Link } from 'react-router-dom'; // <-- Add this import
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -17,7 +18,7 @@ const Dashboard = () => {
           <Link to="/cartItem">
             <button className="btn mr-5 font-bold">Cart</button>
           </Link>
-          <Link to='wishlistItem'>
+          <Link to="/wishlistItem">
             <button className="btn font-bold">Wishlist</button>
           </Link>
         </div>

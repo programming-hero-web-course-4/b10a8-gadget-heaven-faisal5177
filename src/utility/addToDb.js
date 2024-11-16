@@ -1,4 +1,5 @@
 
+
 import { toast } from "react-toastify";
 
 const getStoredCartList = () => {
@@ -38,15 +39,14 @@ const getStoredWishList = () => {
 
 const addToStoredWishList = (id) => {
     const storedWishList = getStoredWishList();
-    if (storedWishList.includes(id)) {
-        console.log(id, 'already exists in the read list')
+    if (!storedWishList.includes(id)) {
+      storedWishList.push(id);
+      localStorage.setItem('wish-list', JSON.stringify(storedWishList));
+      console.log(`Added ${id} to wishlist`);
+    } else {
+      console.log(`${id} already exists in the wishlist`);
     }
-    else {
-        storedWishList.push(id);
-        const storedWishListStr = JSON.stringify(storedWishList);
-        localStorage.setItem('wish-list', storedWishListStr);
-    }
-}
+  };
 
 const addToCart = (productId) => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -55,5 +55,12 @@ const addToCart = (productId) => {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
+const addToWishlist = (productId) => {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    if (!cart.includes(productId)) {
+      cart.push(productId);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }
+  };
 
-export {addToCart , addToStoredCartList, addToStoredWishList, getStoredCartList }
+export {addToCart, addToWishlist , addToStoredCartList, addToStoredWishList, getStoredCartList, getStoredWishList };
