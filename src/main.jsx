@@ -4,7 +4,6 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-
 import Root from './Components/Root/Root';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
@@ -14,6 +13,7 @@ import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Categories from './Components/Categories/Categories'; 
 import CartItem from './Components/CartItem/CartItem';
 import WishlistItem from './Components/WishlistItem/WishlistItem';
+import { FaBeer } from 'react-icons/fa';
 
 const router = createBrowserRouter([
   {
@@ -61,5 +61,6 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
     <ToastContainer />
+    <FaBeer />
   </StrictMode>
 );

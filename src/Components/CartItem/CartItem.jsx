@@ -48,6 +48,11 @@ const CartItem = () => {
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
+    
+    if (button === "sort") {
+      const sortedItems = [...cartItems].sort((a, b) => b.price - a.price);
+      setCartItems(sortedItems);
+    }
   };
 
   return (

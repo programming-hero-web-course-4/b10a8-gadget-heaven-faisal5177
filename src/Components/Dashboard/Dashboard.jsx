@@ -27,10 +27,10 @@ const Dashboard = () => {
       </TabList>
       </TabList>
       <TabPanel className='px-10'>
-        <h3 className='text-3xl font-bold'>Cart</h3>
+        <h3 className=' font-bold'>Cart</h3>
       </TabPanel>
       <TabPanel>
-        <h3>Wishlist Items</h3>
+        <h3 className='font-bold'>Wishlist</h3>
       </TabPanel>
     </Tabs>
   );

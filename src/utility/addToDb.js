@@ -26,7 +26,7 @@ const addToStoredWishList = (id) => {
   if (!storedWishList.includes(id)) {
     storedWishList.push(id);
     localStorage.setItem('wish-list', JSON.stringify(storedWishList));
-    toast('This item is added to your wish list.');
+    toast('This item is added to your wishlist.');
   } else {
       console.log(id, 'already exists in the wish list');
   }

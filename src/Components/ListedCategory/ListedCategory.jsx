@@ -1,5 +1,7 @@
 
 const ListedCategory = () => {
+  
+
   return (
     <div>
       <h2 className="text-3xl font-bold">ListedCategory: {}</h2>
