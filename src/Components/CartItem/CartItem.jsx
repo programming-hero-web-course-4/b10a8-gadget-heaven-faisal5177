@@ -57,7 +57,7 @@ const CartItem = () => {
 
   return (
     <div>
-      <div className="text-center border rounded-lg bg-[#9538E2] py-14">
+      <div className="text-center border rounded-lg bg-[#9538E2] py-14 mb-5">
         <h2 className="text-4xl text-white font-bold">Dashboard</h2>
         <p className="text-gray-200 mb-5">
           <small>

@@ -54,7 +54,7 @@ const WishlistItem = () => {
 
   return (
     <div>
-      <div className="bg-[#9538E2] text-center rounded-lg py-14">
+      <div className="bg-[#9538E2] mb-5 text-center rounded-lg py-14">
         <h2 className="text-4xl font-bold text-white">Dashboard</h2>
         <p className="text-gray-200 mb-5">
           <small>
