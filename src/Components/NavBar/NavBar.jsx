@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdOutlineShoppingCart } from 'react-icons/md'; 
 import { AiOutlineHeart } from 'react-icons/ai';  
 import { Link, useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
+  const [cartCount, setCartCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
+  
   const location = useLocation(); 
   const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    const storedCartList = JSON.parse(localStorage.getItem('cart-list')) || [];
+    const storedWishList = JSON.parse(localStorage.getItem('wish-list')) || [];
+
+    setCartCount(storedCartList.length);
+    setWishlistCount(storedWishList.length);
+  }, []);
 
   return (
     <nav className="navbar bg-base-100 px-10">
@@ -21,10 +32,11 @@ const NavBar = () => {
       <div className="navbar-end">
         <Link to="/cart" className="btn btn-md rounded-full mr-3">
           <MdOutlineShoppingCart />
-          <span></span>
+          <span>{cartCount}</span>
         </Link>
         <Link to="/wishlist" className="btn btn-md rounded-full">
           <AiOutlineHeart />
+          <span>{wishlistCount}</span>
         </Link>
       </div>
     </nav>

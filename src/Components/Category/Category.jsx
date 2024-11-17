@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Category = ({ category }) => {
   if (!category || !category.product_id) {
@@ -7,7 +7,7 @@ const Category = ({ category }) => {
 
   const { product_id, product_title, product_image, price } = category;
 
-  const formattedPrice = typeof price === 'number' ? price.toFixed(2) : price;
+  const formattedPrice = typeof price === "number" ? price.toFixed(2) : price;
 
   return (
     <Link to={`/category/${product_id}`} className="category-link">

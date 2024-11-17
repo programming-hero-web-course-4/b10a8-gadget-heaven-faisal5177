@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ErrorPage from "../ErrorPage/ErrorPage";
-import Category from "../Category/Category"; // Your Category component
-import { Link } from 'react-router-dom';  // Link to handle navigation
+import Category from "../Category/Category";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -53,11 +52,21 @@ const Categories = () => {
 
   return (
     <div className="mx-auto px-12">
-      <h2 className="text-4xl text-center font-bold mb-20">Explore Cutting-Edge Gadgets</h2>
+      <h2 className="text-4xl text-center font-bold mb-20">
+        Explore Cutting-Edge Gadgets
+      </h2>
       <section className="flex gap-6">
         <aside>
           <div className="text-left w-64 border rounded-xl p-10">
-            {["All", "Laptops", "Phones", "Accessories", "Smart Watches", "MacBook", "Iphone"].map((category, index) => (
+            {[
+              "All",
+              "Laptops",
+              "Phones",
+              "Accessories",
+              "Smart Watches",
+              "MacBook",
+              "Iphone",
+            ].map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategoryClick(category)}
@@ -71,9 +80,7 @@ const Categories = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-xl items-center ml-10">
           {filteredCategories.length > 0 ? (
             filteredCategories.map((categoryItem) => (
-              <Link to={`/category/${categoryItem.product_id}`} key={categoryItem.product_id}>
-                <Category category={categoryItem} />
-              </Link>
+              <Category key={categoryItem.product_id} category={categoryItem} />
             ))
           ) : (
             <p>No categories available.</p>

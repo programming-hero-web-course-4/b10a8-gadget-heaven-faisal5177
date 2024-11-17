@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import {
   getStoredCartList,
-  addToCart,
   removeFromCart,
+  addToStoredCartList,
 } from "../../utility/addToDb";
 import { AiOutlineSliders } from "react-icons/ai";
 import GroupImg from "../../assets/images/Group.png";
@@ -11,41 +11,42 @@ import GroupImg from "../../assets/images/Group.png";
 const CartItem = () => {
   const data = useLoaderData();
   const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
   const [activeButton, setActiveButton] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedCartList = getStoredCartList();
-    console.log("Stored Cart List:", storedCartList);
-
     const storedCartItems = data.filter((item) =>
       storedCartList.includes(item.product_id.toString())
     );
-    console.log("Stored Cart Items:", storedCartItems);
-
     setCartItems(storedCartItems);
+    setCartCount(storedCartItems.length);
   }, [data]);
 
   const handleAddToCart = (productId) => {
-    addToCart(productId);
+    addToStoredCartList(productId);
+
     const updatedCartList = getStoredCartList();
     const updatedCartItems = data.filter((item) =>
       updatedCartList.includes(item.product_id.toString())
     );
     setCartItems(updatedCartItems);
-    console.log("Updated Cart Items:", updatedCartItems);
+    setCartCount(updatedCartItems.length);
+
     navigate("/cart");
   };
 
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId);
+
     const updatedCartList = getStoredCartList();
     const updatedCartItems = data.filter((item) =>
       updatedCartList.includes(item.product_id.toString())
     );
     setCartItems(updatedCartItems);
-    console.log("Updated Cart Items after removal:", updatedCartItems);
+    setCartCount(updatedCartItems.length);
   };
 
   const totalCost = cartItems
@@ -66,7 +67,7 @@ const CartItem = () => {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false); 
+    setIsModalOpen(false);
   };
 
   return (
@@ -74,11 +75,8 @@ const CartItem = () => {
       <div className="text-center border rounded-lg bg-[#9538E2] py-14 mb-5">
         <h2 className="text-4xl text-white font-bold">Dashboard</h2>
         <p className="text-gray-200 mb-5">
-          <small>
-            Explore the latest gadgets that will take your experience to the
-            next level. From smart devices to
-            <br /> the coolest accessories, we have it all!
-          </small>
+          Explore the latest gadgets that will take your experience to the next
+          level.
         </p>
         <div>
           <button
@@ -86,7 +84,7 @@ const CartItem = () => {
             className={`btn btn-sm mr-5 text-[#9538E2] ${
               activeButton === "cart"
                 ? "bg-white hover:bg-[#9538E2] hover:text-white"
-                : "bg-[#9538E2] text-white hover:bg-[#9538E2] hover:text-white"
+                : "bg-[#9538E2] text-white"
             }`}
           >
             Cart
@@ -97,7 +95,7 @@ const CartItem = () => {
               className={`btn btn-sm mr-5 ${
                 activeButton === "wishlist"
                   ? "bg-white hover:bg-[#9538E2] hover:text-white"
-                  : "bg-white text-[#9538E2] hover:bg-[#9538E2] hover:text-white"
+                  : "bg-white text-[#9538E2]"
               }`}
             >
               Wishlist
@@ -116,18 +114,14 @@ const CartItem = () => {
                 className={`btn btn-sm rounded-full ${
                   activeButton === "sort"
                     ? "bg-gradient-to-r from-[#9538E2] via-[#fd00ce] to-[#9538E2] text-white"
-                    : "bg-white text-[#9538E2] hover:bg-[#9538E2] hover:text-white"
+                    : "bg-white text-[#9538E2]"
                 }`}
               >
                 Sort by Price <AiOutlineSliders />
               </button>
               <button
                 onClick={handlePurchase}
-                className={`btn btn-sm ml-5 rounded-full ${
-                  activeButton === "purchase"
-                    ? "bg-gradient-to-r from-[#9538E2] via-[#fd00ce] to-[#9538E2] text-white"
-                    : "bg-white text-[#9538E2] hover:bg-[#9538E2] hover:text-white"
-                }`}
+                className="btn btn-sm ml-5 rounded-full bg-white text-[#9538E2] hover:bg-[#9538E2]"
               >
                 Purchase
               </button>
@@ -156,31 +150,16 @@ const CartItem = () => {
                   <p className="font-medium">Price: ${item.price}</p>
                 </div>
               </div>
-              <div>
-                <button
-                  onClick={() => handleRemoveFromCart(item.product_id)}
-                  className="btn btn-circle btn-xs border-red-500 text-red-500 bg-white mt-10 mr-20"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+              <button
+                onClick={() => handleRemoveFromCart(item.product_id)}
+                className="btn btn-circle btn-xs border-red-500 text-red-500 bg-white mt-10 mr-20"
+              >
+                Remove
+              </button>
             </div>
           ))
         ) : (
-          <p>No items available!</p>
+          <p>No items available</p>
         )}
       </div>
 
@@ -191,20 +170,16 @@ const CartItem = () => {
           className="modal modal-bottom sm:modal-middle w-1/3 h-2/3 mx-auto"
         >
           <div className="modal-box text-center">
-            <div>
-              <img className="mx-auto mb-5" src={GroupImg} alt="Success" />
-            </div>
-            <h3 className="font-bold text-lg">Payment Successfully</h3>
-            <div className="divider"></div>
-            <p className="py-4 text-gray-400">
-              Thanks for purchasing.
-            </p>
+            <img className="mx-auto mb-5" src={GroupImg} alt="Success" />
+            <h3 className="font-bold text-lg">Payment Successful</h3>
+            <p className="py-4 text-gray-400">Thanks for purchasing!</p>
             <p className="text-gray-400">Total: ${totalCost}</p>
-            <div className="modal-action">
-              <button className="btn mx-auto px-20 border-[#9538E2] text-[#9538E2] font-bold rounded-full" onClick={closeModal}>
-                Close
-              </button>
-            </div>
+            <button
+              className="btn mx-auto px-20 border-[#9538E2] text-[#9538E2] font-bold rounded-full"
+              onClick={closeModal}
+            >
+              Close
+            </button>
           </div>
         </dialog>
       )}

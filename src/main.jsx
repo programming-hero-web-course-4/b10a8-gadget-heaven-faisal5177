@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
 import Root from './Components/Root/Root';
@@ -14,6 +14,19 @@ import Categories from './Components/Categories/Categories';
 import CartItem from './Components/CartItem/CartItem';
 import WishlistItem from './Components/WishlistItem/WishlistItem';
 import { FaBeer } from 'react-icons/fa';
+
+const fetchCategories = async () => {
+  try {
+    const response = await fetch('/CategoriesData.json');
+    if (!response.ok) {
+      throw new Error('Failed to fetch categories data.');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
 
 const router = createBrowserRouter([
   {
@@ -28,12 +41,20 @@ const router = createBrowserRouter([
       {
         path: "cartItem",
         element: <CartItem />,
-        loader: () => fetch('/CategoriesData.json').then(res => res.json()),
+        loader: fetchCategories,
+      },
+      {
+        path: "cart",
+        element: <Navigate to="/cartItem" replace />,
+      },
+      {
+        path: "wishlist",
+        element: <Navigate to="/wishlistItem" replace />,
       },
       {
         path: "wishlistItem", 
         element: <WishlistItem />,
-        loader: () => fetch('/CategoriesData.json').then(res => res.json()),
+        loader: fetchCategories,
       },
       {
         path: "dashboard",
@@ -46,12 +67,12 @@ const router = createBrowserRouter([
       {
         path: "categories",
         element: <Categories />,
-        loader: () => fetch('/CategoriesData.json').then(res => res.json()),
+        loader: fetchCategories,
       },
       {
         path: "category/:product_id",
         element: <ProductDetails />,
-        loader: () => fetch('/CategoriesData.json'),
+        loader: fetchCategories,
       },
     ],
   },
