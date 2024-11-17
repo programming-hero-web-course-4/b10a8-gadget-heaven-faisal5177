@@ -29,7 +29,7 @@ const ProductDetails = () => {
   console.log("Selected Category:", category); 
 
   return (
-    <div className="mb-96">
+    <div className="">
       <div className="text-center border rounded-lg bg-[#9538E2] py-14">
         <h2 className="text-4xl font-bold text-white mb-5">Product Details</h2>
         <p className="text-gray-200 mb-5">
@@ -41,31 +41,28 @@ const ProductDetails = () => {
         </p>
       </div>
 
-      <div>
-        <div className="grid grid-cols-2 -mt-10 lg:h-[450px] border rounded-lg mx-auto lg:w-2/3 px-3 gap-5 absolute top-1/2 left-1/2 transform -translate-x-1/2 bg-white p-2">
-          <div className="my-auto">
-            <figure>
-              <img
-                className="rounded-lg object-cover mx-auto lg:max-w-80 p-4 bg-white my-auto"
-                src={category.product_image}
-                alt={category.product_title}
-              />
-            </figure>
-          </div>
-
-          <div>
-            <h2 className="card-title font-bold lg:mb-3">
+      <div className="px-40 -mt-16 p-30">
+        <div className="card lg:card-side bg-base-100 shadow-xl mx-auto px-20">
+          <figure>
+            <img
+              className="rounded-lg object-cover mx-auto lg:w-[266px]  bg-white my-auto"
+              src={category.product_image}
+              alt={category.product_title}
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title font-bold">
               {category.product_title}
             </h2>
-            <p className="lg:mb-3">Price: ${category.price}</p>
+            <p>Price: ${category.price}</p>
 
             <div className="mr-auto">
-              <button className="btn btn-sm rounded-xl px-4 bg-[#309C081A] border-[#3862281a] lg:mb-3">
+              <button className="btn btn-sm rounded-xl px-4 bg-[#309C081A] border-[#3862281a]">
                 <small className="text-[#309C08]">In Stock</small>
               </button>
             </div>
 
-            <p className="lg:mb-3">
+            <p>
               <small className="text-gray-500">{category.description}</small>
             </p>
 
@@ -73,18 +70,13 @@ const ProductDetails = () => {
             {category &&
             category.specification &&
             category.specification.length > 0 ? (
-              category.specification.map(
-                (
-                  spec,
-                  index
-                ) => (
-                  <p className="text-gray-500" key={index}>
-                    <small>
-                      {index + 1}. {spec}
-                    </small>
-                  </p>
-                )
-              )
+              category.specification.map((spec, index) => (
+                <p className="text-gray-500" key={index}>
+                  <small>
+                    {index + 1}. {spec}
+                  </small>
+                </p>
+              ))
             ) : (
               <p className="text-gray-400">
                 <small>No specifications available.</small>

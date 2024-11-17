@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { getStoredCartList, addToCart, removeFromCart } from "../../utility/addToDb"; 
+import {
+  getStoredCartList,
+  addToCart,
+  removeFromCart,
+} from "../../utility/addToDb";
 import { AiOutlineSliders } from "react-icons/ai";
+import GroupImg from "../../assets/images/Group.png";
 
 const CartItem = () => {
   const data = useLoaderData();
   const [cartItems, setCartItems] = useState([]);
   const [activeButton, setActiveButton] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,12 +39,12 @@ const CartItem = () => {
   };
 
   const handleRemoveFromCart = (productId) => {
-    removeFromCart(productId); 
+    removeFromCart(productId);
     const updatedCartList = getStoredCartList();
     const updatedCartItems = data.filter((item) =>
       updatedCartList.includes(item.product_id.toString())
     );
-    setCartItems(updatedCartItems); 
+    setCartItems(updatedCartItems);
     console.log("Updated Cart Items after removal:", updatedCartItems);
   };
 
@@ -48,11 +54,19 @@ const CartItem = () => {
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
-    
+
     if (button === "sort") {
       const sortedItems = [...cartItems].sort((a, b) => b.price - a.price);
       setCartItems(sortedItems);
     }
+  };
+
+  const handlePurchase = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false); 
   };
 
   return (
@@ -108,7 +122,7 @@ const CartItem = () => {
                 Sort by Price <AiOutlineSliders />
               </button>
               <button
-                onClick={() => handleButtonClick("purchase")}
+                onClick={handlePurchase}
                 className={`btn btn-sm ml-5 rounded-full ${
                   activeButton === "purchase"
                     ? "bg-gradient-to-r from-[#9538E2] via-[#fd00ce] to-[#9538E2] text-white"
@@ -169,6 +183,31 @@ const CartItem = () => {
           <p>No items available!</p>
         )}
       </div>
+
+      {/* Modal for payment confirmation */}
+      {isModalOpen && (
+        <dialog
+          open
+          className="modal modal-bottom sm:modal-middle w-1/3 h-2/3 mx-auto"
+        >
+          <div className="modal-box text-center">
+            <div>
+              <img className="mx-auto mb-5" src={GroupImg} alt="Success" />
+            </div>
+            <h3 className="font-bold text-lg">Payment Successfully</h3>
+            <div className="divider"></div>
+            <p className="py-4 text-gray-400">
+              Thanks for purchasing.
+            </p>
+            <p className="text-gray-400">Total: ${totalCost}</p>
+            <div className="modal-action">
+              <button className="btn mx-auto px-20 border-[#9538E2] text-[#9538E2] font-bold rounded-full" onClick={closeModal}>
+                Close
+              </button>
+            </div>
+          </div>
+        </dialog>
+      )}
     </div>
   );
 };
