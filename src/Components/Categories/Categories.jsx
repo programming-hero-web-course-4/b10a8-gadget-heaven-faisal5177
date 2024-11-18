@@ -56,12 +56,12 @@ const Categories = () => {
       </h2>
       <section className="flex gap-6">
         <div className="lg:w-64 text-left mb-6">
-          <div className="grid text-left lg:w-full border rounded-2xl lg:p-5 md:p-3 sm:p-2 xs:p-2">
+          <div className="grid text-left lg:w-full border rounded-2xl p-3">
             {["All", "Laptops", "Phones", "Accessories", "Smart Watches", "MacBook", "Iphone"].map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategoryClick(category)}
-                className="btn lg:btn-lg mb-5 font-bold rounded-full lg:text-lg bg-white hover:bg-[#9538E2] hover:text-white px-5"
+                className="btn mb-5 bg-base-200 font-bold rounded-full text-lg hover:bg-[#9538E2] hover:text-white px-5"
               >
                 {category}
               </button>
