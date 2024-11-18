@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Category from "../Category/Category";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
-  const [showErrorPage, setShowErrorPage] = useState(false);
   const [filteredCategories, setFilteredCategories] = useState([]);
+  const [showErrorPage, setShowErrorPage] = useState(false);
   const unavailableCategories = ["Smart Watches"];
 
   useEffect(() => {
@@ -22,8 +22,7 @@ const Categories = () => {
           setFilteredCategories(data);
         } else {
           console.error("Data is not an array:", data);
-          setCategories([]);
-          setFilteredCategories([]);
+          setShowErrorPage(true);
         }
       })
       .catch((error) => {
@@ -56,8 +55,8 @@ const Categories = () => {
         Explore Cutting-Edge Gadgets
       </h2>
       <section className="flex gap-6">
-        <div className="lg:w-64 w-full text-left mb-6">
-          <div className="grid text-left lg:w-full lg:border rounded-2xl lg:p-5">
+        <div className="lg:w-64 text-left mb-6">
+          <div className="grid text-left lg:w-full border rounded-2xl lg:p-5 md:p-3 sm:p-2 xs:p-2">
             {["All", "Laptops", "Phones", "Accessories", "Smart Watches", "MacBook", "Iphone"].map((category, index) => (
               <button
                 key={index}
@@ -69,7 +68,7 @@ const Categories = () => {
             ))}
           </div>
         </div>
-        <div className="w-full gap-6 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 rounded-xl items-center ml-10">
+        <div className="w-full gap-6 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  rounded-xl items-center ml-10">
           {filteredCategories.length > 0 ? (
             filteredCategories.map((categoryItem) => (
               <Category key={categoryItem.product_id} category={categoryItem} />

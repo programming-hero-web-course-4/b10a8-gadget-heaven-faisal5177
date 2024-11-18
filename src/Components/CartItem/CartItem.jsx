@@ -7,16 +7,16 @@ import GroupImg from "../../assets/images/Group.png";
 const CartItem = () => {
   const data = useLoaderData();
   const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
   const [activeButton, setActiveButton] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedCartList = getStoredCartList();
-    const storedCartItems = data.filter((item) => storedCartList.includes(item.product_id.toString()));
-    setCartItems(storedCartItems);
-    setCartCount(storedCartItems.length);
+    if (data && Array.isArray(data)) {
+      const storedCartList = getStoredCartList();
+      const storedCartItems = data.filter((item) => storedCartList.includes(item.product_id.toString()));
+      setCartItems(storedCartItems);
+    }
   }, [data]);
 
   const handleAddToCart = (productId) => {
@@ -24,7 +24,6 @@ const CartItem = () => {
     const updatedCartList = getStoredCartList();
     const updatedCartItems = data.filter((item) => updatedCartList.includes(item.product_id.toString()));
     setCartItems(updatedCartItems);
-    setCartCount(updatedCartItems.length);
     navigate("/cart");
   };
 
@@ -33,7 +32,6 @@ const CartItem = () => {
     const updatedCartList = getStoredCartList();
     const updatedCartItems = data.filter((item) => updatedCartList.includes(item.product_id.toString()));
     setCartItems(updatedCartItems);
-    setCartCount(updatedCartItems.length);
   };
 
   const totalCost = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
@@ -45,12 +43,8 @@ const CartItem = () => {
       const sortedItems = [...cartItems].sort((a, b) => b.price - a.price);
       setCartItems(sortedItems);
     } else if (button === "purchase") {
-      handlePurchase();
+      setIsModalOpen(true);
     }
-  };
-
-  const handlePurchase = () => {
-    setIsModalOpen(true);
   };
 
   const closeModal = () => {
@@ -59,7 +53,26 @@ const CartItem = () => {
 
   return (
     <div>
-      {/* Content rendering code */}
+      <div className="text-center border rounded-lg bg-[#9538E2] py-14 mb-5">
+        <h2 className="text-4xl text-white font-bold">Dashboard</h2>
+        <p className="text-gray-200 mb-5">Explore the latest gadgets that will take your experience to the next level.</p>
+        <div>
+          <button
+            onClick={() => handleButtonClick("cart")}
+            className={`btn btn-sm mr-5 ${activeButton === "cart" ? "bg-gradient-to-r from-[#9538E2] to-transparent text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}
+          >
+            Cart
+          </button>
+          <Link to="/wishlistItem">
+            <button
+              onClick={() => handleButtonClick("wishlist")}
+              className={`btn btn-sm mr-5 ${activeButton === "wishlist" ? "bg-gradient-to-b from-pink-500 from-10% text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}
+            >
+              Wishlist
+            </button>
+          </Link>
+        </div>
+      </div>
       <div className="px-10">
         <div className="flex justify-between">
           <h2 className="text-3xl font-bold">Cart</h2>
@@ -69,20 +82,20 @@ const CartItem = () => {
               {/* Sort by Price button */}
               <button
                 onClick={() => handleButtonClick("sort")}
-                className={`btn btn-sm mr-3 rounded-full ${activeButton === "sort" ? "bg-gradient-to-r from-[#9538E2] via-[#fd00ce] to-[#9538E2] text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}> 
+                className={`btn btn-sm mr-3 rounded-full ${activeButton === "sort" ? "bg-pink-400 bg-gradient-to-b from-[#9538E2] from-70% text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}> 
                 Sort by Price <AiOutlineSliders />
               </button>
               {/* Purchase button */}
               <button
                 onClick={() => handleButtonClick("purchase")}
-                className={`btn btn-sm rounded-full ${activeButton === "purchase" ? "bg-gradient-to-r from-[#9538E2] via-[#fd00ce] to-[#9538E2] text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}> 
+                className={`btn btn-sm rounded-full ${activeButton === "purchase" ? "bg-pink-400 bg-gradient-to-b from-[#9538E2] from-70% text-white" : "bg-white text-[#9538E2] border-[#9538E2]"}`}> 
                 Purchase
               </button>
             </div>
           </div>
         </div>
 
-        {/* Cart items rendering */}
+        {/* Render cart items */}
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div key={item.product_id} className="border rounded-xl flex px-5 py-2 gap-6 mt-10 shadow-xl justify-between">

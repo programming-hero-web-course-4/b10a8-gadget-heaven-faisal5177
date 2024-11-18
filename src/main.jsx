@@ -33,15 +33,43 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "cartItem", element: <CartItem />, loader: fetchCategories },
-      { path: "cart", element: <Navigate to="/cartItem" replace /> },
-      { path: "wishlist", element: <Navigate to="/wishlistItem" replace /> },
-      { path: "wishlistItem", element: <WishlistItem />, loader: fetchCategories },
-      { path: "dashboard", element: <Dashboard /> },
-      { path: "statistics", element: <Statistics /> },
-      { path: "categories", element: <Categories />, loader: fetchCategories },
-      { path: "category/:product_id", element: <ProductDetails />, loader: fetchCategories },
+      { 
+        path: "/", 
+        element: <Home /> 
+      },
+      { path: "cartItem", 
+        element: <CartItem />, 
+        loader: fetchCategories 
+      },
+      { path: "cart", 
+        element: 
+        <Navigate to="/cartItem"></Navigate> 
+      },
+      { path: "wishlist", 
+        element: <Navigate to="/wishlistItem"></Navigate>
+      },
+      { path: "wishlistItem", 
+        element: <WishlistItem />, 
+        loader: fetchCategories 
+      },
+      { path: "dashboard", 
+        element: <Dashboard /> 
+
+      },
+      { path: "statistics", 
+        element: <Statistics /> 
+
+      },
+      { path: "categories", 
+        element: <Categories />, 
+        loader: fetchCategories 
+
+      },
+      { path: "category/:product_id", 
+        element: <ProductDetails />, 
+        loader: fetchCategories 
+
+      },
     ],
   },
 ]);
