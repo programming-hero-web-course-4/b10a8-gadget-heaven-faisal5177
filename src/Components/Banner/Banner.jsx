@@ -16,7 +16,7 @@ const Banner = () => {
         </p>
         <button className="btn btn-sm text-[#9538E2] font-bold bg-white mt-4">Shop Now</button>
       </div>
-      <div className="flex justify-center mt-18 boder rounded-lg bg-white">
+      <div className="flex justify-center mt-18 boder rounded-lg">
         <img className="h-[300px]  w-[600px] p-3 border rounded-lg -translate-y-1/3" src={BannerImg} alt="Banner" />
       </div>
     </div>
