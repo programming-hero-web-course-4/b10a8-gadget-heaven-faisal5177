@@ -11,19 +11,19 @@ const Category = ({ category }) => {
 
   return (
     <Link to={`/category/${product_id}`} className="category-link">
-      <div className="category-card max-w-sm shadow-xl lg:p-2 mx-auto border rounded-xl my-auto hover:shadow-2xl transition-shadow duration-200">
-        <figure>
+      <div className="category-card shadow-xl p-4 border rounded-xl hover:shadow-2xl transition-shadow duration-200">
+        <figure className="flex justify-center mb-4">
           <img
-            className="lg:h-[166px] mx-auto my-auto p-2 bg-white object-cover"
+            className="p-3 h-48  object-cover bg-white rounded-xl"
             src={product_image}
             alt={product_title}
           />
         </figure>
         <div className="card-body">
-          <h2 className="product_title lg:text-lg font-bold">{product_title}</h2>
-          <p className="text-gray-500 text-lg">Price: ${formattedPrice}</p>
-          <div>
-            <button className="btn text-[#9538E2] rounded-2xl border-[#9538E2]">
+          <h2 className="product_title text-lg font-bold mb-2">{product_title}</h2>
+          <p className="text-gray-500 text-lg mb-4">Price: ${formattedPrice}</p>
+          <div className="text-center">
+            <button className="btn text-[#9538E2] rounded-2xl border-[#9538E2] w-full">
               View Details
             </button>
           </div>

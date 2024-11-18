@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';  // <-- Import hooks here
+import React, { useState, useEffect } from 'react';
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Category from "../Category/Category";
 
@@ -51,23 +51,25 @@ const Categories = () => {
   }
 
   return (
-    <div className="mx-auto px-12">
-      <h2 className="text-4xl text-center font-bold mb-20"> Explore Cutting-Edge Gadgets </h2>
-      <section className="flex">
-        <div className="">
-          <div className="text-left w-64 border rounded-2xl p-10">
+    <div className="mx-auto px-10">
+      <h2 className="text-4xl text-center font-bold mb-20">
+        Explore Cutting-Edge Gadgets
+      </h2>
+      <section className="flex gap-6">
+        <div className="lg:w-64 w-full text-left mb-6">
+          <div className="grid text-left lg:w-full lg:border rounded-2xl lg:p-5">
             {["All", "Laptops", "Phones", "Accessories", "Smart Watches", "MacBook", "Iphone"].map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategoryClick(category)}
-                className="btn btn-lg mb-5 font-bold rounded-full text-lg w-full bg-white hover:bg-[#9538E2] hover:text-white px-5"
+                className="btn lg:btn-lg mb-5 font-bold rounded-full lg:text-lg bg-white hover:bg-[#9538E2] hover:text-white px-5"
               >
                 {category}
               </button>
             ))}
           </div>
         </div>
-        <div className="w-full gap-6 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  rounded-xl items-center ml-10">
+        <div className="w-full gap-6 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 rounded-xl items-center ml-10">
           {filteredCategories.length > 0 ? (
             filteredCategories.map((categoryItem) => (
               <Category key={categoryItem.product_id} category={categoryItem} />
