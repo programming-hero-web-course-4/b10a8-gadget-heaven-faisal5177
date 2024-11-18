@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode } from 'react'; 
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
@@ -13,7 +13,6 @@ import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Categories from './Components/Categories/Categories'; 
 import CartItem from './Components/CartItem/CartItem';
 import WishlistItem from './Components/WishlistItem/WishlistItem';
-import { FaBeer } from 'react-icons/fa';
 
 const fetchCategories = async () => {
   try {
@@ -34,46 +33,15 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "cartItem",
-        element: <CartItem />,
-        loader: fetchCategories,
-      },
-      {
-        path: "cart",
-        element: <Navigate to="/cartItem" replace />,
-      },
-      {
-        path: "wishlist",
-        element: <Navigate to="/wishlistItem" replace />,
-      },
-      {
-        path: "wishlistItem", 
-        element: <WishlistItem />,
-        loader: fetchCategories,
-      },
-      {
-        path: "dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "statistics",
-        element: <Statistics />,
-      },
-      {
-        path: "categories",
-        element: <Categories />,
-        loader: fetchCategories,
-      },
-      {
-        path: "category/:product_id",
-        element: <ProductDetails />,
-        loader: fetchCategories,
-      },
+      { path: "/", element: <Home /> },
+      { path: "cartItem", element: <CartItem />, loader: fetchCategories },
+      { path: "cart", element: <Navigate to="/cartItem" replace /> },
+      { path: "wishlist", element: <Navigate to="/wishlistItem" replace /> },
+      { path: "wishlistItem", element: <WishlistItem />, loader: fetchCategories },
+      { path: "dashboard", element: <Dashboard /> },
+      { path: "statistics", element: <Statistics /> },
+      { path: "categories", element: <Categories />, loader: fetchCategories },
+      { path: "category/:product_id", element: <ProductDetails />, loader: fetchCategories },
     ],
   },
 ]);
@@ -82,6 +50,5 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
     <ToastContainer />
-    <FaBeer />
   </StrictMode>
 );

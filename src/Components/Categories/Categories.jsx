@@ -52,7 +52,7 @@ const Categories = () => {
 
   return (
     <div className="mx-auto px-10">
-      <h2 className="text-4xl text-center font-bold mb-20">
+      <h2 className="text-4xl text-center -mt-10 font-bold mb-10">
         Explore Cutting-Edge Gadgets
       </h2>
       <section className="flex gap-6">
