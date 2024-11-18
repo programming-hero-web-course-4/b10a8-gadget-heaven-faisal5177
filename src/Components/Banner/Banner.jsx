@@ -1,5 +1,6 @@
 import BannerImg from '../../assets/images/banner.jpg';
 
+
 const Banner = () => {
     return (
       <div>

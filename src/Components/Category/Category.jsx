@@ -11,16 +11,16 @@ const Category = ({ category }) => {
 
   return (
     <Link to={`/category/${product_id}`} className="category-link">
-      <div className="category-card max-w-sm shadow-xl p-2 mx-auto border rounded-xl my-auto hover:shadow-2xl transition-shadow duration-200">
+      <div className="category-card max-w-sm shadow-xl lg:p-2 mx-auto border rounded-xl my-auto hover:shadow-2xl transition-shadow duration-200">
         <figure>
           <img
-            className="h-[166px] mx-auto my-auto p-2 bg-white object-cover"
+            className="lg:h-[166px] mx-auto my-auto p-2 bg-white object-cover"
             src={product_image}
             alt={product_title}
           />
         </figure>
         <div className="card-body">
-          <h2 className="product_title text-lg font-bold">{product_title}</h2>
+          <h2 className="product_title lg:text-lg font-bold">{product_title}</h2>
           <p className="text-gray-500 text-lg">Price: ${formattedPrice}</p>
           <div>
             <button className="btn text-[#9538E2] rounded-2xl border-[#9538E2]">

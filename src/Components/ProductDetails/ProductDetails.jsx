@@ -41,8 +41,8 @@ const ProductDetails = () => {
         </p>
       </div>
 
-      <div className="px-40 -mt-16 p-30">
-        <div className="card lg:card-side bg-base-100 shadow-xl mx-auto px-20">
+      <div className="px-40 -mt-16 lg:p-30">
+        <div className="card lg:card-side bg-base-100 shadow-xl mx-auto lg:px-20">
           <figure>
             <img
               className="rounded-lg object-cover mx-auto lg:w-[266px]  bg-white my-auto"
@@ -51,7 +51,7 @@ const ProductDetails = () => {
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title font-bold">
+            <h2 className="card-title font-bold md:text-sm">
               {category.product_title}
             </h2>
             <p>Price: ${category.price}</p>
@@ -116,12 +116,12 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="lg:flex gap-3">
               <button
                 className="flex"
                 onClick={() => handleAddToCart(product_id)}
               >
-                <small className="btn btn-sm text-[#9538E2] rounded-2xl border-[#9538E2]">
+                <small className="btn btn-sm text-[#9538E2] md:text-sm rounded-2xl border-[#9538E2]">
                   Add To Cart
                   <TiShoppingCart />
                 </small>
