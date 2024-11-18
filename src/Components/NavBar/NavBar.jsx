@@ -36,12 +36,12 @@ const NavBar = () => {
   return (
     <nav className="navbar bg-base-100 px-10">
       <div className="navbar-start">
-        <NavLink className={`font-bold text-xl ${isHomePage ? 'text-white' : 'text-black'}  btn rounded-xl hover:bg-[#9538E2]  hover:text-white`} to="/">Gadget Heaven</NavLink>
+        <NavLink className={`font-bold text-xl ${isHomePage ? 'text-white' : 'text-black'}`} to="/">Gadget Heaven</NavLink>
       </div>
       <div className="navbar-center">
-        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'text-white' : 'text-black'} btn rounded-xl hover:bg-[#9538E2] hover:text-white`} to="/">Home</NavLink>
-        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'text-white' : 'text-black'} btn rounded-xl hover:bg-[#9538E2] hover:text-white`} to="/statistics">Statistics</NavLink>
-        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'text-white' : 'text-black'} btn rounded-xl hover:bg-[#9538E2] hover:text-white`} to="/dashboard">Dashboard</NavLink>
+        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'hover:text-black text-white' : 'text-black'} `} to="/">Home</NavLink>
+        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'hover:text-black text-white' : 'text-black'} `} to="/statistics">Statistics</NavLink>
+        <NavLink className={`hover:text-[#9538E2] font-bold mx-4 ${isHomePage ? 'hover:text-black text-white' : 'text-black'} `} to="/dashboard">Dashboard</NavLink>
       </div>
       <div className="navbar-end">
         <Link to="/cart" className="btn btn-sm font-bold hover:bg-[#9538E2]  hover:text-white rounded-full mr-3">
